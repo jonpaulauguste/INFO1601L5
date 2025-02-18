@@ -5,7 +5,7 @@ for(let i=0; i< arr.length; i++){
 }
 
 let radius = 10;
-// const pi = 3.14;
+const pi = 3.14;
 
 let area = pi * radius * radius;
 
@@ -111,7 +111,7 @@ let absolute = Math.abs(-34);// 34
 
 let randNum = Math.random();// random number between 0 and 1
 
-let pi = Math.pi;// pi in radians * 180 to convert to degrees
+// let pi = Math.pi;// pi in radians * 180 to convert to degrees
 
 //generate a random Integer between a supplied range
 function randInt(min, max){
@@ -143,7 +143,26 @@ console.log(add(5,11)); // logs 16
 
 console.log(add(2));// logs 12
 
-let sum = 10
+// let sum = 10
 
-function sum(){ //duplicate declaration error
-}
+// function sum(){ //duplicate declaration error
+// }
+
+function happyPrint(string){
+  console.log("😀: "+string);
+ }
+ 
+ function sadPrint(string){
+  console.log("😢: "+string);
+ }
+ 
+ //This high-order function adds 2 parameters and passes the answer to the callback
+ function add(a, b, callback){
+    let ans = a + b;
+    callback(ans);// call the callback and pass the answer to it
+ }
+ 
+ //call add passing the callbacks to it
+ 
+ add(5, 10, happyPrint);
+ add(11, 12, sadPrint);
