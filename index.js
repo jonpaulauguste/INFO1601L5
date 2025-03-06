@@ -308,7 +308,7 @@ console.log(johnClone);
 console.log(people[0].marks[0]);//what is printed?
 
 
-*/
+
 
 //Create a constructor a functions which builds object for us
 function createPerson(name, height, weight) {
@@ -337,3 +337,100 @@ let people = [
 ];
 
 console.log(avgBMI(people));
+
+*/
+
+//object literal
+let bob = {
+  fname: "bob",
+  lname: "smith",
+  age: 18,
+  height: 6,
+  transcript:[
+    {
+      course: 'INFO 1603',
+      grades: [ 89, 34, 67 ]
+    },
+    {
+      course: 'INFO 1601',
+      grades: [ 89, 34, 67 ]
+    }
+  ]
+};
+
+let sally = {
+  fname: "sally",
+  lname: "smith",
+  age: 18,
+  height: 6,
+  transcript:[
+    {
+      course: 'INFO 1601',
+      grades: [ 100, 89, 79 ]
+    }
+  ]
+};
+
+let paul = {
+  fname: "paul",
+  lname: "smith",
+  age: 18,
+  height: 6,
+  transcript:[
+    {
+      course: 'INFO 1600',
+      grades: [ 89, 34, 67 ]
+    }
+  ]
+};
+
+
+const students = [bob, sally, paul];
+
+function getAverageGrade(student, course) {
+  for(let courseData of student.transcript){
+      if(courseData.course === course){
+        let total = courseData.grades.reduce((sum, grade) => sum + grade, 0);
+        return total / courseData.grades.length;
+      }
+    }
+    return -1;
+  }
+
+
+
+function getAssignmentMark(student, course, num){
+    for (let courseData of student.transcript){
+      if (courseData.course === course){
+          if (num >= 0 && num < courseData.grades.length){
+            return courseData.grades[num];
+          }
+      }
+    }
+
+    return -1;
+}
+
+function averageAssessment(students, courseName, assignment){
+  let total = 0;
+  let count = 0;
+
+  for(let student of students){
+    let mark = getAssignmentMark(student, courseName, assignment);
+        if (mark !== -1){
+          total += mark;
+          count++;
+        }
+  }
+
+  if(count > 0){
+      return total / count;
+  } else {
+    return -1;
+  }
+}
+
+console.log(getAverageGrade(bob, 'INFO 1601'));
+console.log(getAssignmentMark(sally, 'INFO 1601', 2));
+console.log(averageAssessment(students, 'INFO 1600', 1));
+

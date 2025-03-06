@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/jon-paul/Documents/GitHub/INFO1601L3/INFO1601L5",
+      "program": "/Users/jon-paul/Documents/GitHub/INFO1601L3/INFO1601L5/build/Debug/outDebug"
+    }
+  ]
+}
